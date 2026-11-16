@@ -1,0 +1,10 @@
+What is the extension of a Python file?|.py
+Which keyword is used to define a function in Python?|def
+Which function is used to display output in Python?|print
+Which data type stores True or False values?|bool
+Which symbol is used for comments in Python?|#
+Which keyword is used for a loop over a sequence?|for
+Which data structure stores key-value pairs?|dictionary
+Which function returns the length of a sequence?|len
+Which operator is used for exponentiation in Python?|**
+Which keyword is used to stop a loop?|break
