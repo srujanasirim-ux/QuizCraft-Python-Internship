@@ -1,4 +1,5 @@
 import random
+# Function 1: Load questions from the text file
 def load_questions(path):
     questions = []
     try:
@@ -17,6 +18,7 @@ def load_questions(path):
     except FileNotFoundError:
         print("Error: Questions file not found!")
     return questions
+# Function 2: Ask one question
 def ask_question(q):
     print("\n" + q["question"])
     user_answer = input("Your answer: ").strip()
@@ -24,9 +26,11 @@ def ask_question(q):
     if user_answer.lower() == correct_answer.lower():
         print("Correct answer!")
         return True, user_answer
-    print("Wrong answer!")
-    print("Correct answer:", correct_answer)
-    return False, user_answer
+    else:
+        print("Wrong answer!")
+        print("Correct answer:", correct_answer)
+        return False, user_answer
+# Function 3: Display quiz results
 def show_score(score, total, wrong_answers):
     percentage = (score / total) * 100 if total > 0 else 0
     print("\n========== QUIZ RESULTS ==========")
@@ -43,37 +47,55 @@ def show_score(score, total, wrong_answers):
             print("Correct Answer:", item["correct_answer"])
     else:
         print("\nExcellent! All answers are correct!")
+# Main function
 def main():
     print("================================")
     print("       PYTHON QUIZCRAFT")
     print("================================")
+    # Load questions
     questions = load_questions("questions.txt")
     if not questions:
         print("No valid questions available.")
         return
     print("\nAvailable Questions:", len(questions))
+    # Ask user how many questions they want
     while True:
         try:
             total = int(input("How many questions do you want? "))
             if 1 <= total <= len(questions):
                 break
-            print("Enter a number between 1 and", len(questions))
+            else:
+                print("Enter a number between 1 and", len(questions))
         except ValueError:
             print("Please enter a valid number.")
-    random.shuffle(questions)
-    selected_questions = questions[:total]
-    score = 0
-    wrong_answers = []
-    for q in selected_questions:
-        is_correct, user_answer = ask_question(q)
-        if is_correct:
-            score += 1
-        else:
-            wrong_answers.append({
-                "question": q["question"],
-                "your_answer": user_answer,
-                "correct_answer": q["answer"]
-            })
-    show_score(score, total, wrong_answers)
+    # Play quiz
+    while True:
+        # Shuffle questions randomly
+        random.shuffle(questions)
+        # Select the requested number of questions
+        selected_questions = questions[:total]
+        score = 0
+        wrong_answers = []
+        # Ask selected questions
+        for q in selected_questions:
+            is_correct, user_answer = ask_question(q)
+            if is_correct:
+                score += 1
+            else:
+                wrong_answers.append({
+                    "question": q["question"],
+                    "your_answer": user_answer,
+                    "correct_answer": q["answer"]
+                })
+        # Display results
+        show_score(score, total, wrong_answers)
+        # Ask whether user wants to play again
+        play_again = input(
+            "\nDo you want to play again? (yes/no): "
+        ).strip().lower()
+        if play_again not in ("yes", "y"):
+            break
+    print("\nThank you for playing QuizCraft!")
+# Program execution starts here
 if __name__ == "__main__":
     main()
