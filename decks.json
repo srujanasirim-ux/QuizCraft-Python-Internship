@@ -1,0 +1,70 @@
+{
+    "Python": {
+        "questions": [
+            {
+                "text": "Which keyword is used to define a function in Python?",
+                "choices": {
+                    "A": "function",
+                    "B": "def",
+                    "C": "define",
+                    "D": "fun"
+                },
+                "answer": "B"
+            },
+            {
+                "text": "Which data type stores True or False values?",
+                "choices": {
+                    "A": "int",
+                    "B": "str",
+                    "C": "bool",
+                    "D": "float"
+                },
+                "answer": "C"
+            },
+            {
+                "text": "Which operator is used for exponentiation?",
+                "choices": {
+                    "A": "**",
+                    "B": "//",
+                    "C": "%",
+                    "D": "*"
+                },
+                "answer": "A"
+            }
+        ]
+    },
+    "DSA": {
+        "questions": [
+            {
+                "text": "Which data structure follows FIFO?",
+                "choices": {
+                    "A": "Stack",
+                    "B": "Queue",
+                    "C": "Tree",
+                    "D": "Graph"
+                },
+                "answer": "B"
+            },
+            {
+                "text": "Which data structure follows LIFO?",
+                "choices": {
+                    "A": "Queue",
+                    "B": "Array",
+                    "C": "Stack",
+                    "D": "Linked List"
+                },
+                "answer": "C"
+            },
+            {
+                "text": "Which algorithm is used to find the shortest path in an unweighted graph?",
+                "choices": {
+                    "A": "DFS",
+                    "B": "BFS",
+                    "C": "Binary Search",
+                    "D": "Selection Sort"
+                },
+                "answer": "B"
+            }
+        ]
+    }
+}
