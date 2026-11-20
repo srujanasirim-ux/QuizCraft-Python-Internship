@@ -66,5 +66,59 @@
                 "answer": "B"
             }
         ]
+    },
+    "general knowledge": {
+        "questions": [
+            {
+                "text": "Which of the following Pacific Islander countries is ruled by a constitutional monarchy?",
+                "answer": "C",
+                "choices": {
+                    "A": "Fiji",
+                    "B": "Kiribati",
+                    "C": "Tonga",
+                    "D": "Palau"
+                }
+            },
+            {
+                "text": "How many Harry Potter books are there?",
+                "answer": "B",
+                "choices": {
+                    "A": "5",
+                    "B": "7",
+                    "C": "6",
+                    "D": "8"
+                }
+            },
+            {
+                "text": "When did the Battle of the Somme begin?",
+                "answer": "B",
+                "choices": {
+                    "A": "June 30th, 1916",
+                    "B": "July 1st, 1916",
+                    "C": "August 1st, 1916",
+                    "D": "July 2nd, 1916"
+                }
+            },
+            {
+                "text": "Which South American country fought Great Britain over the Falkland Islands in 1982?",
+                "answer": "D",
+                "choices": {
+                    "A": "Brazil",
+                    "B": "Venezuela",
+                    "C": "Chile",
+                    "D": "Argentina"
+                }
+            },
+            {
+                "text": "Which ocean borders the west coast of the United States?",
+                "answer": "B",
+                "choices": {
+                    "A": "Arctic",
+                    "B": "Pacific",
+                    "C": "Atlantic",
+                    "D": "Indian"
+                }
+            }
+        ]
     }
 }
