@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #101827, #172b35);
+    color: #f1f5f9;
+    min-height: 100vh;
+    padding: 30px 15px;
+}
+.container {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+}
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+header h1 {
+    color: #38d9a9;
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+header p {
+    color: #cbd5e1;
+    font-size: 16px;
+}
+.card {
+    background: #1e293b;
+    padding: 25px;
+    margin-bottom: 22px;
+    border-radius: 14px;
+    border: 1px solid #334155;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+.card h2 {
+    color: #38d9a9;
+    margin-bottom: 18px;
+}
+.card p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+.deck-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    background: #0f172a;
+    color: white;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+.deck-form input {
+    flex: 1;
+    min-width: 150px;
+}
+button,
+.button-link {
+    display: inline-block;
+    background: #0d9f75;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+button:hover,
+.button-link:hover {
+    background: #087f5b;
+}
+.progress {
+    color: #38d9a9;
+    font-weight: bold;
+}
+.option {
+    display: block;
+    background: #0f172a;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    cursor: pointer;
+}
+.option:hover {
+    border-color: #38d9a9;
+}
+.option input {
+    margin-right: 10px;
+}
+.score {
+    color: #38d9a9;
+    font-size: 48px;
+    margin: 20px 0;
+}
+.wrong-answer {
+    background: #35212a;
+    border-left: 4px solid #ef4444;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 6px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+th,
+td {
+    padding: 13px;
+    border-bottom: 1px solid #475569;
+    text-align: left;
+}
+th {
+    color: #38d9a9;
+}
+.button-link {
+    margin: 8px 8px 8px 0;
+}
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+    }
+    header h1 {
+        font-size: 28px;
+    }
+    .card {
+        padding: 18px;
+    }
+    .deck-form {
+        flex-direction: column;
+    }
+    .deck-form input,
+    .deck-form button {
+        width: 100%;
+    }
+    table {
+        font-size: 13px;
+    }
+    th,
+    td {
+        padding: 9px 5px;
+    }
+}

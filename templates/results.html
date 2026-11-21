@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizCraft - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QUIZ RESULTS</h1>
+            <p>Well done, {{ quiz.player_name }}!</p>
+        </header>
+        <section class="card">
+            <h2>{{ quiz.deck_name }}</h2>
+            <h1 class="score">{{ quiz.score }} / {{ total }}</h1>
+            <p>
+                Percentage:
+                {{ "%.2f"|format((quiz.score / total * 100) if total else 0) }}%
+            </p>
+        </section>
+        <section class="card">
+            <h2>Review Your Mistakes</h2>
+            {% if quiz.wrong_answers %}
+                {% for item in quiz.wrong_answers %}
+                    <div class="wrong-answer">
+                        <p><strong>{{ item.text }}</strong></p>
+                        <p>Your answer: {{ item.your_answer }}</p>
+                        {% if item.choices %}
+                            <p>Correct answer:
+                                {{ item.correct_answer }}) 
+                                {{ item.choices.get(item.correct_answer, "") }}
+                            </p>
+                        {% else %}
+                            <p>Correct answer: {{ item.correct_answer }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Excellent! You answered every question correctly!</p>
+            {% endif %}
+        </section>
+        <a href="{{ url_for('home') }}" class="button-link">Back to Home</a>
+        <a href="{{ url_for('stats', player_name=quiz.player_name) }}" class="button-link">
+            View Statistics
+        </a>
+    </div>
+</body>
+</html>

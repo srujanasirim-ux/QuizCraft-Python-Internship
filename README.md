@@ -1,11 +1,12 @@
-
 # QuizCraft – Python Quiz Trainer
 
 ## About the Project
 
-QuizCraft is a beginner-friendly, terminal-based quiz application developed using Python. It allows users to practice quiz questions, organize questions into different decks, track their performance, and save their progress.
+QuizCraft is a Python-based quiz application that allows users to practice quiz questions, organize questions into different decks, track their performance, and save their progress.
 
-The project is developed as part of the SkillMe Python Internship and is completed in weekly stages.
+The application includes both a terminal-based quiz system and a web-based quiz interface built using Flask.
+
+This project is developed as part of the SkillMe Python Internship and is completed in four weekly stages.
 
 ## Features
 
@@ -19,7 +20,7 @@ The project is developed as part of the SkillMe Python Internship and is complet
 - Shows final score, percentage, and wrong answers.
 - Allows users to play multiple rounds.
 - Handles invalid user input.
-- Includes basic automated tests using pytest.
+- Includes automated tests using pytest.
 
 ### Week 2 – Decks, Classes and Saved Progress
 
@@ -48,6 +49,21 @@ The project is developed as part of the SkillMe Python Internship and is complet
 - Allows players to save fetched online questions as new local decks for offline practice.
 - Saves online and offline quiz results in player progress.
 
+### Week 4 – Web Quiz with Flask and Tests
+
+- Develops a web-based quiz application using Flask.
+- Displays available quiz decks on the home page.
+- Allows players to enter their name and start a quiz.
+- Displays multiple-choice and text-based questions through web pages.
+- Uses Flask sessions to maintain quiz progress.
+- Tracks the current question, score, player, and selected deck.
+- Displays the final score, percentage, and incorrect answers.
+- Saves quiz results to the existing progress storage.
+- Provides a statistics page showing attempts and best scores for each deck.
+- Prevents page refreshes from submitting the same answer again.
+- Prevents completed quiz results from being saved more than once.
+- Includes automated Flask application tests using pytest.
+
 ## Project Structure
 
 ```text
@@ -62,8 +78,27 @@ QuizCraft-Python-Internship/
 ├── storage.py
 ├── main.py
 │
+├── app.py
+├── test_app.py
+├── requirements.txt
+│
+├── templates/
+│   ├── index.html
+│   ├── quiz.html
+│   ├── results.html
+│   └── stats.html
+│
+├── static/
+│   └── style.css
+│
+├── screenshots/
+│   ├── home.png
+│   ├── quiz.png
+│   ├── results.png
+│   └── stats.png
+│
 ├── decks.json
-├── progress.json       # Automatically generated
+├── progress.json       # Automatically generated; not committed
 │
 ├── .gitignore
 └── README.md
@@ -72,15 +107,28 @@ QuizCraft-Python-Internship/
 ## Requirements
 
 - Python 3.x
-- requests
-- pytest (for running Week 1 tests)
+- Flask
+- Requests
+- Pytest
 
 ## Installation
 
-Install the required libraries using:
+Clone the repository:
 
 ```bash
-pip install requests pytest
+git clone https://github.com/srujanasirim-ux/QuizCraft-Python-Internship.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd QuizCraft-Python-Internship
+```
+
+Install the required libraries:
+
+```bash
+python -m pip install -r requirements.txt
 ```
 
 ## How to Run
@@ -95,7 +143,7 @@ python quiz.py
 
 Enter the number of questions you want to attempt, answer the questions, and view your final score.
 
-### Week 2 and Week 3 – QuizCraft Application
+### Week 2 and Week 3 – QuizCraft Terminal Application
 
 Run:
 
@@ -126,6 +174,30 @@ Enter your player name and choose an option from the main menu:
 - Optionally save the questions as a new local deck.
 
 If the API is unavailable, QuizCraft automatically switches to local quiz decks so players can continue practicing.
+
+### Week 4 – Flask Web Application
+
+Run the Flask application:
+
+```bash
+python -m flask --app app run
+```
+
+Open the following address in your browser:
+
+```text
+http://127.0.0.1:5000
+```
+
+**Using the Web Application:**
+
+1. Enter your player name.
+2. Select a quiz deck.
+3. Answer the questions displayed on the web page.
+4. View your final score and incorrect answers.
+5. Visit the statistics page to view your attempts and best scores.
+
+The application uses Flask sessions to maintain quiz progress and prevent duplicate result submissions when refreshing the results page.
 
 ## How to Add Questions
 
@@ -158,9 +230,28 @@ Each question contains:
 
 Online questions can also be saved directly as new local decks through the application.
 
+## Screenshots
+
+Screenshots of the Week 4 Flask web application:
+
+### Home Page
+![QuizCraft Home Page](screenshots/home.png)
+
+### Quiz Page
+![QuizCraft Quiz Page](screenshots/quiz.png)
+
+### Results Page
+![QuizCraft Results Page](screenshots/results.png)
+
+### Statistics Page
+![QuizCraft Statistics Page](screenshots/stats.png)
+
 ## Technologies Used
 
 - Python
+- Flask
+- HTML
+- CSS
 - Open Trivia Database API
 - REST API Integration
 - Requests Library
@@ -168,6 +259,8 @@ Online questions can also be saved directly as new local decks through the appli
 - File Handling
 - Object-Oriented Programming (OOP)
 - Classes and Methods
+- Flask Sessions
+- Jinja2 Templates
 - Exception Handling
 - Random Module
 - HTML Entity Decoding
@@ -175,13 +268,27 @@ Online questions can also be saved directly as new local decks through the appli
 
 ## Testing
 
-Week 1 includes automated tests for question loading and file handling.
-
-Run the tests using:
+Run all automated tests using:
 
 ```bash
 python -m pytest -v
 ```
+
+The project includes tests for:
+
+**Week 1:**
+- Loading questions from a text file.
+- Handling invalid question lines.
+- Handling missing files.
+
+**Week 4:**
+- Loading the home page.
+- Starting a quiz.
+- Checking correct answers and scoring.
+- Ensuring quiz results are saved only once.
+- Displaying the statistics page.
+
+The current test suite contains 8 passing tests.
 
 Week 2 and Week 3 features were also tested manually, including:
 
@@ -207,8 +314,11 @@ Through this project, I practiced:
 - Working with REST APIs.
 - Sending HTTP requests using the Requests library.
 - Handling API responses and network errors.
-- Converting external API data into application-specific formats.
-- Writing basic automated tests using pytest.
+- Building web applications using Flask.
+- Creating HTML templates and styling web pages with CSS.
+- Managing user sessions using Flask.
+- Implementing automated tests using pytest.
+- Preventing duplicate form submissions and result storage.
 
 ## Internship
 
@@ -217,14 +327,6 @@ Through this project, I practiced:
 - Week 1: Terminal Quiz from a Text File.
 - Week 2: Decks, Classes and Saved Progress.
 - Week 3: Import Questions from a Free API.
+- Week 4: Web Quiz with Flask and Tests.
 
 **Project:** QuizCraft – Python Quiz Trainer
-```
-
-### Next step
-
-1. Open `README.md`.
-2. Replace its contents with the updated version.
-3. Save using `Ctrl + S`.
-
-Then tell me when it's saved. We'll check the project files and run the Week 1 automated tests before committing Week 3 to GitHub.

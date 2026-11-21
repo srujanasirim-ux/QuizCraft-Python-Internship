@@ -120,5 +120,59 @@
                 }
             }
         ]
+    },
+    "computer": {
+        "questions": [
+            {
+                "text": "In networking, what does OSPF stand for?",
+                "answer": "B",
+                "choices": {
+                    "A": "Order State Part First",
+                    "B": "Open Shortest Path First",
+                    "C": "Order Sense Ping Find",
+                    "D": "Open Signal Path Finder"
+                }
+            },
+            {
+                "text": "How many bits are commonly in a single byte?",
+                "answer": "C",
+                "choices": {
+                    "A": "Fifteen bits",
+                    "B": "Twelve bits",
+                    "C": "Eight bits",
+                    "D": "Six bits"
+                }
+            },
+            {
+                "text": "Which computer language would you associate Django framework with?",
+                "answer": "C",
+                "choices": {
+                    "A": "C++",
+                    "B": "C#",
+                    "C": "Python",
+                    "D": "Java"
+                }
+            },
+            {
+                "text": "What programming language was GitHub written in?",
+                "answer": "B",
+                "choices": {
+                    "A": "Lua",
+                    "B": "Ruby",
+                    "C": "JavaScript",
+                    "D": "Python"
+                }
+            },
+            {
+                "text": "In any programming language, what is the most common way to iterate through an array?",
+                "answer": "B",
+                "choices": {
+                    "A": "'While' loops",
+                    "B": "'For' loops",
+                    "C": "'If' Statements",
+                    "D": "'Do-while' loops"
+                }
+            }
+        ]
     }
 }

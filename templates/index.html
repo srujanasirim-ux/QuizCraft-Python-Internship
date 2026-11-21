@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizCraft - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QUIZCRAFT</h1>
+            <p>Flashcard & Quiz Trainer</p>
+        </header>
+        <section class="card">
+            <h2>Welcome to QuizCraft!</h2>
+            <p>Select a deck and test your knowledge.</p>
+            {% if deck_names %}
+                {% for deck in deck_names %}
+                    <form action="{{ url_for('start_quiz', deck_name=deck) }}" method="POST" class="deck-form">
+                        <input type="text" name="player_name" placeholder="Enter your name" required>
+                        <button type="submit">Play {{ deck }}</button>
+                    </form>
+                {% endfor %}
+            {% else %}
+                <p>No quiz decks available.</p>
+            {% endif %}
+        </section>
+        <section class="card">
+            <h2>View Your Statistics</h2>
+            <form action="{{ url_for('stats') }}" method="GET">
+                <input type="text" name="player_name" placeholder="Enter your name" required>
+                <button type="submit">View Statistics</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

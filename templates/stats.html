@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizCraft - Statistics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YOUR STATISTICS</h1>
+            {% if player_name %}
+                <p>Player: {{ player_name }}</p>
+            {% endif %}
+        </header>
+        <section class="card">
+            {% if not player_name %}
+                <p>Please enter a player name from the home page.</p>
+            {% elif statistics %}
+                <table>
+                    <tr>
+                        <th>Deck</th>
+                        <th>Attempts</th>
+                        <th>Best Score</th>
+                    </tr>
+                    {% for item in statistics %}
+                        <tr>
+                            <td>{{ item.deck }}</td>
+                            <td>{{ item.attempts }}</td>
+                            <td>{{ item.best_score }} / {{ item.total }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>No quiz attempts found for {{ player_name }}.</p>
+            {% endif %}
+        </section>
+        <a href="{{ url_for('home') }}" class="button-link">Back to Home</a>
+    </div>
+</body>
+</html>
